@@ -14,11 +14,16 @@ This variable describes the lighting condition of the scene during the crash or 
 
 ---
 
-### 🎬 Video Examples (Click image to view)
+<h3>☀️ LIGHT_CONDITION: Daylight</h3>
 
-#### 1. `daylight`
-[![Daylight](https://img.youtube.com/vi/UHwEqBDFl34/0.jpg)](https://youtu.be/UHwEqBDFl34?t=65)  
-*AV proceeds through a sunny city intersection.*
+<p align="center">
+  <a href="https://youtu.be/UHwEqBDFl34?t=65" target="_blank">
+    <img src="SAVeD/frames/light_c_daytime.png" width="500"/>
+    <br>
+    <em>Example: Scene under daylight condition (timestamp: 65s)</em>
+  </a>
+</p>
+
 
 ---
 
