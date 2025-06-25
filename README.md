@@ -252,3 +252,29 @@ This variable describes the relative direction and position of the vehicles invo
 - For multi-vehicle crashes, annotate the **main AV-to-object contact**.
 - “Sideswipe” does not imply high damage but indicates motion alignment and partial contact.
 
+---
+
+## 🚗 Variable: `TOTAL_NUMBER_OF_VEHICLES` — Total Number of Vehicles Involved
+
+### 📘 Definition  
+This variable counts the total number of vehicles directly involved in the crash event. It helps characterize the scale and complexity of the incident.
+
+- A "vehicle involved" refers to any road user that physically contacted or directly contributed to the collision sequence.
+
+---
+
+### 🧮 Example
+
+#### Multi-Vehicle Crash — 3 Vehicles Involved  
+[![Three Vehicles](https://img.youtube.com/vi/ecGSJVRCvC4/0.jpg)](https://youtu.be/ecGSJVRCvC4?t=17)  
+🚗🚗🚗 *This crash involves three vehicles in a chain-reaction rear-end collision. All three vehicles sustained some level of damage.*
+
+---
+
+### 📌 Annotation Notes
+
+- Do **not** count vehicles that simply witnessed the crash or stopped nearby.
+- For sideswipe crashes involving several glancing contacts, count **all physically contacted** vehicles.
+- In rare edge cases with trailers or towed equipment, count each **motor vehicle unit** separately.
+
+
