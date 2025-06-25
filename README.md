@@ -445,4 +445,57 @@ This variable represents the engaged level of driving automation in the autonomo
 > Videos are only labeled if there is **clear evidence** of automation level (visual or textual).  
 > Videos without sufficient information are **excluded** from the SAVeD dataset.
 
+---
+
+## 💵 Variable: `INSURANCE_ESTIMATE_TYPE` — Type of Insurance Cost Disclosure
+
+### 📘 Definition  
+This variable captures whether and how the cost or outcome of the insurance claim is disclosed in the video.
+
+It includes direct uploads of insurance paperwork, driver-reported cost estimates via captions, or the absence of any cost-related information.
+
+---
+
+### 🧾 Label: `Formal_Insurance_Document`
+
+<p align="center">
+  <a href="https://youtu.be/9LuxEM7000g?t=454" target="_blank">
+    <img src="https://img.youtube.com/vi/9LuxEM7000g/0.jpg" width="400"/><br>
+    <em>Example: The video shows an official insurance document shared by the driver.</em>
+  </a>
+</p>
+
+---
+
+### 💬 Label: `Driver_Reported_Estimate`
+
+<p align="center">
+  <a href="https://youtu.be/dnfOQGbiVII?t=220" target="_blank">
+    <img src="https://img.youtube.com/vi/dnfOQGbiVII/0.jpg" width="400"/><br>
+    <em>Example: Cost estimates or repair descriptions are provided via subtitles or narration.</em>
+  </a>
+</p>
+
+<p align="center">
+  <strong>Special Case:</strong> If the subtitle explicitly states the car was totaled, mark it as <code>total</code>.
+</p>
+
+---
+
+### ❓ Label: `IDK` (Unknown)
+
+<p align="center">
+  <a href="https://youtu.be/9LuxEM7000g?t=292" target="_blank">
+    <img src="https://img.youtube.com/vi/9LuxEM7000g/0.jpg" width="400"/><br>
+    <em>Example: No cost or insurance information is available in the video or captions.</em>
+  </a>
+</p>
+
+---
+
+### ⚠️ Annotation Notes
+
+- Videos with **both** paperwork and captions: label as `Formal_Insurance_Document`.
+- If **only cost** is discussed (no document shown), label as `Driver_Reported_Estimate`.
+- If **no reliable info**, label as `IDK`.
 
