@@ -393,3 +393,45 @@ This rule ensures labeling consistency and prioritizes the initial failure or ex
 
 ---
 
+---
+
+## 🤖 Variable: `AV_AUTOMATION_LEVEL` — AV Driving Automation Level
+
+### 📘 Definition  
+This variable indicates the level of driving automation actively engaged by the autonomous vehicle (AV) at the time of the incident, based on the SAE levels of driving automation.
+
+Only videos with **clearly identifiable automation levels** are included in this dataset. If the driving mode cannot be confirmed via visual evidence or reliable captions, the video is excluded from the SAVeD dataset.
+
+---
+
+### 🔍 Label Options
+
+| Label       | Description                                                                 |
+|-------------|-----------------------------------------------------------------------------|
+| `Level3+`   | Hands-free autonomous driving. The AV operates without human steering input.|
+| `Level1_2`  | Driver-assistance mode (e.g., lane-keeping, adaptive cruise). Hands-on.     |
+
+---
+
+### ⚠️ Annotation Guidelines
+
+- **Label as `Level3+`** if:
+  - The video clearly shows hands-free driving behavior  
+    e.g., [Video Example](https://youtu.be/bnUMVWtExS4?t=1090)
+  - The captions explicitly mention "Full Self-Driving" or "hands-free"  
+    e.g., [Video Example](https://youtu.be/V03P0J4s6OA?t=476)
+
+- **Label as `Level1_2`** if:
+  - The captions mention ADAS (e.g., "Autopilot engaged")  
+    e.g., [Video Example](https://youtu.be/QZ7vziuw420?t=39)
+  - The AV model is known to include basic automation (e.g., Autopilot in Model 3)  
+    e.g., [Video Example](https://youtu.be/sGAV6L8zl7E?t=183)
+
+- **Exclude** videos without sufficient evidence to assign a level.
+
+---
+
+### 🧠 Labeling Principle
+
+We prioritize labeling only when there is **direct or clearly inferable evidence** of the AV automation level. If the video lacks both visual and textual cues, it is excluded to maintain annotation reliability.
+
