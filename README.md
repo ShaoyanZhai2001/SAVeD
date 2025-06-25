@@ -329,4 +329,39 @@ This variable identifies what the autonomous vehicle (AV) collided with during t
 - If the AV swerves and hits infrastructure while avoiding another object, use **the actual collision target**.
 - “Infrastructure” includes curbs, cones, signs, fences, and poles.
 
+---
+
+## 🚘 Variable: `AV_MODEL` — Size Category of Autonomous Vehicle
+
+### 📘 Definition  
+This variable classifies the **autonomous vehicle (AV)** by its size category, rather than its specific make or model. This helps in analyzing visibility, stopping distances, and crash severity potential.
+
+> ⚠️ **Note**: Since many videos are from first-person AV camera views, **visual identification may not be possible**. Please refer to **on-screen captions or text** for vehicle model details whenever available.
+
+---
+
+### 🧩 Label Options
+
+| Value     | Description                                 | Includes                        |
+|-----------|---------------------------------------------|---------------------------------|
+| `small`   | Compact vehicles                            | sedan, coupe                    |
+| `medium`  | Mid-size vehicles                           | SUV, pickup truck              |
+| `large`   | Heavy or commercial vehicles                | truck, bus, van                |
+| `unknown` | Model or size not visible or mentioned      | —                               |
+
+---
+
+### 🎬 Video Example
+
+#### `medium` — Pickup Truck (identified via caption)
+[![Pickup Truck](https://img.youtube.com/vi/nDHxO6HrHGc/0.jpg)](https://youtu.be/nDHxO6HrHGc?t=1056)  
+🛻 *This AV is a pickup truck. The caption at timestamp 17:36 explicitly mentions the model. Classified as `medium`.*
+
+---
+
+### 📌 Annotation Notes
+
+- Use **captions or speaker narration** as the primary source of vehicle type.
+- If only the **vehicle’s shadow or mirror** is visible, **label as `unknown`**.
+- If captions state the AV is a "bus" or "semi-truck," label as `large`.
 
