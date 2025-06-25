@@ -133,5 +133,50 @@ This variable describes the surface condition of the roadway at the time of the 
 - If a road transitions during the video (e.g., snow melts), label based on **when the event occurs**, not general driving condition.
 
 
+---
+
+## ⚖️ 4. Variable: `GUILTY` — Fault Attribution
+
+### 📘 Definition  
+This variable indicates which party is considered at fault for the incident based on video evidence and contextual cues. It helps evaluate AV decision-making in safety-critical scenarios.
+
+---
+
+### 🧩 Label Options
+
+| Value              | Description                                               |
+|--------------------|-----------------------------------------------------------|
+| `AV`               | The autonomous vehicle was primarily at fault             |
+| `non-AV`           | The other road user was primarily at fault                |
+| `both`             | Both parties contributed to the incident                  |
+
+---
+
+### 🎬 Video Examples (Click to View)
+
+#### 1. `AV` — AV is at fault
+[![AV Guilty](https://img.youtube.com/vi/6jSMxcnTklo/0.jpg)](https://youtu.be/6jSMxcnTklo?t=123)  
+⚠️ *AV failed to yield and collided with cross traffic. Video clearly shows AV's improper judgment.*
+
+---
+
+#### 2. `non-AV` — Other party is at fault
+[![Non-AV Guilty](https://img.youtube.com/vi/PKHfruXYmVY/0.jpg)](https://youtu.be/PKHfruXYmVY?t=825)  
+✅ *Another vehicle unexpectedly enters AV's lane, causing a collision. AV behavior appears compliant.*
+
+---
+
+#### 3. `both` — Shared fault
+[![Shared Fault](https://img.youtube.com/vi/IjFsu5mirkw/0.jpg)](https://www.youtube.com/watch?v=IjFsu5mirkw)  
+⚖️ *Both the AV and the other driver made poor decisions leading to the crash. Mutual misjudgment observed.*
+
+---
+
+### 📌 Annotation Notes
+
+- Annotate fault based on **behavioral evidence in the video**, not just outcomes.
+- If the AV makes a legal maneuver but fails to detect/respond adequately, it may still be labeled at fault.
+- In complex situations, label as `both` when mutual errors clearly contribute to the incident.
+
 
 
