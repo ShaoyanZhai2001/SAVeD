@@ -167,7 +167,7 @@ This variable indicates which party is considered at fault for the incident base
 ---
 
 #### 3. `both` — Shared fault
-[![Shared Fault](https://img.youtube.com/vi/IjFsu5mirkw/0.jpg)](https://www.youtube.com/watch?v=IjFsu5mirkw=178)  
+[![Shared Fault](https://img.youtube.com/vi/IjFsu5mirkw/0.jpg)](https://youtu.be/IjFsu5mirkw?t=179)  
 ⚖️ *Both the AV and the other driver made poor decisions leading to the crash. Mutual misjudgment observed.*
 
 ---
