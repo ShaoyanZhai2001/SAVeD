@@ -385,7 +385,7 @@ This rule ensures labeling consistency and prioritizes the initial failure or ex
 ---
 
 <p align="center">
-  <img src="SAVeD/main_damage_area.png" width="500"/>
+  <img src="/main_damage_area.png" width="500"/>
   <br>
   <em>Figure: Illustration of main damage areas of an autonomous vehicle (AV).<br>
   Only the first damaged area should be labeled, even in cases with multiple collisions.</em>
