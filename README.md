@@ -365,23 +365,31 @@ This variable classifies the **autonomous vehicle (AV)** by its size category, r
 - If only the **vehicle’s shadow or mirror** is visible, **label as `unknown`**.
 - If captions state the AV is a "bus" or "semi-truck," label as `large`.
 
+---
+
 ## 🧱 Notes on Collision Damage Variables: Primary Impact Area
 
 ### 📘 Definition  
 The following two variables describe the **primary damaged area** of the autonomous vehicle (AV) resulting from a collision.
 
-These variables are designed to help characterize the crash dynamics, system vulnerabilities, and AV structural exposure. They only capture **the first and most significant point of damage** on the AV.
+These variables are designed to help characterize crash dynamics, system vulnerabilities, and AV structural exposure. They only capture the **first and most significant point of damage** on the AV.
 
 ---
 
 ### ⚠️ Important Annotation Rule
 
-> If the incident involves **multiple impacts**, only the **first damaged region** of the AV should be recorded, regardless of secondary collisions or resulting deformations.
+If the incident involves **multiple impacts**, only the **first damaged region** of the AV should be recorded, regardless of secondary collisions or resulting deformations.
 
-This rule ensures consistency and prioritizes the initial failure or exposure point in crash analysis.
+This rule ensures labeling consistency and prioritizes the initial failure or exposure point in crash analysis.
+
+---
+
 <p align="center">
   <img src="SAVeD/main_damage_area.png" width="500"/>
   <br>
-  <em>Figure: Illustration of main damage areas of an autonomous vehicle (AV).</em><br>
-  <em>Only the first damaged area should be labeled, even in cases with multiple collisions.</em>
+  <em>Figure: Illustration of main damage areas of an autonomous vehicle (AV).<br>
+  Only the first damaged area should be labeled, even in cases with multiple collisions.</em>
 </p>
+
+---
+
