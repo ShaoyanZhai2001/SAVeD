@@ -18,7 +18,7 @@ This variable describes the lighting condition of the scene during the crash or 
 
 <p align="center">
   <a href="https://youtu.be/UHwEqBDFl34?t=65" target="_blank">
-    <img src="SAVeD/frames/light_c_daytime.png" width="500"/>
+    <img src="/light_c_daytime.png" width="500"/>
     <br>
     <em>Example: Scene under daylight condition (timestamp: 65s)</em>
   </a>
