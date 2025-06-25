@@ -1,0 +1,40 @@
+## 🌤️ Variable: `LIGHT_CONDITION` — Lighting Condition
+
+### 📘 Definition  
+This variable describes the lighting environment at the time of the crash or near-miss event. Lighting condition can significantly influence the perception capability of both human drivers and autonomous vehicles, especially in edge-case scenarios.
+
+---
+
+### 🧩 Label Options
+
+| Value                | Description                                             |
+|----------------------|---------------------------------------------------------|
+| `daylight`           | Daytime with natural sunlight; scene is clearly visible |
+| `dark with light`    | Nighttime with sufficient artificial illumination (e.g., street lights, vehicle headlights) |
+| `dark without light` | Nighttime without visible illumination; environment appears dark with limited visibility |
+
+---
+
+### 🎬 Video Examples
+
+#### 1. `daylight`
+[![Daylight](https://img.youtube.com/vi/UHwEqBDFl34/0.jpg)](https://youtu.be/UHwEqBDFl34?t=65)  
+*An AV proceeds through a city intersection during broad daylight. The environment is clearly illuminated by natural sunlight.*
+
+---
+
+#### 2. `dark with light`
+[![Dark with Light](https://img.youtube.com/vi/RPhR3nNWauY/0.jpg)](https://youtu.be/RPhR3nNWauY?t=149)  
+*An AV approaches a lit urban roadway at night. Streetlights and ambient lighting are clearly visible, supporting night-time visibility.*
+
+---
+
+#### 3. `dark without light`
+[![Dark without Light](https://img.youtube.com/vi/O8zvM-DPifw/0.jpg)](https://youtu.be/O8zvM-DPifw?t=154)  
+*The AV travels on a dark highway with no surrounding illumination other than its own headlights. This represents a “dark without light” scenario.*
+
+---
+
+### 🔍 Annotation Notes
+
+- If the scene involves dusk or transitional lighting, annotate based on the dominant lighting condition at the moment of the event.
