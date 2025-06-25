@@ -87,7 +87,51 @@ This variable captures the atmospheric conditions at the time of the event, whic
 ### 📌 Annotation Notes
 
 - If multiple weather phenomena are present (e.g., rain + fog), annotate with the **most dominant** condition that affects visibility or driving.
-- `fog/smog/smoke` may also include wildfire smoke or industrial smog that significantly impairs AV sensors or human view.
+
+---
+
+## 🛣️ 3. Variable: `ROAD_SURFACE_CONDITION` — Road Surface Condition
+
+### 📘 Definition  
+This variable describes the surface condition of the roadway at the time of the event, which directly impacts vehicle control, traction, and braking efficiency.
+
+---
+
+### 🧩 Label Options
+
+| Value        | Description                                         |
+|--------------|-----------------------------------------------------|
+| `dry`        | Normal, dry pavement with no moisture               |
+| `wet`        | Surface appears damp or soaked due to rain or water |
+| `snow/ice`   | Snow-covered or icy roadway, may reduce traction    |
+
+---
+
+### 🎬 Video Examples (Click to View)
+
+#### 1. `dry`
+[![Dry](https://img.youtube.com/vi/HD0dz8G-2sM/0.jpg)](https://youtu.be/HD0dz8G-2sM?t=2606)  
+🚗 *AV operates on a dry and clear roadway. No visible moisture or precipitation.*
+
+---
+
+#### 2. `wet`
+[![Wet](https://img.youtube.com/vi/66IApMK6F5Y/0.jpg)](https://youtu.be/66IApMK6F5Y?t=1051)  
+🌧️ *Pavement is visibly wet due to recent or ongoing rain. Reflections and water film present.*
+
+---
+
+#### 3. `snow/ice`
+[![Snow/Ice](https://img.youtube.com/vi/PKHfruXYmVY/0.jpg)](https://youtu.be/PKHfruXYmVY?t=170)  
+❄️ *Road surface is covered in snow or ice. Potential for slipping and traction loss.*
+
+---
+
+### 📌 Annotation Notes
+
+- When wet spots or melting snow are visible but not dominant, annotate based on the **overall driving condition**.
+- If a road transitions during the video (e.g., snow melts), label based on **when the event occurs**, not general driving condition.
+
 
 
 
