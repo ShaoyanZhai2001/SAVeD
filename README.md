@@ -275,6 +275,6 @@ This variable counts the total number of vehicles directly involved in the crash
 
 - Do **not** count vehicles that simply witnessed the crash or stopped nearby.
 - For sideswipe crashes involving several glancing contacts, count **all physically contacted** vehicles.
-- In rare edge cases with trailers or towed equipment, count each **motor vehicle unit** separately.
+- In rare edge cases with trailers or towed equipment, count each **motor vehicle unit** separately。
 
 
