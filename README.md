@@ -277,4 +277,56 @@ This variable counts the total number of vehicles directly involved in the crash
 - For sideswipe crashes involving several glancing contacts, count **all physically contacted** vehicles.
 - In rare edge cases with trailers or towed equipment, count each **motor vehicle unit** separately。
 
+---
+
+## 🧱 Variable: `CRASH_WITH` — Object of Collision
+
+### 📘 Definition  
+This variable identifies what the autonomous vehicle (AV) collided with during the incident. It distinguishes among road users, static obstacles, and infrastructure elements.
+
+---
+
+### 🧩 Label Options
+
+| Value           | Description                                            |
+|------------------|--------------------------------------------------------|
+| `vehicle`        | Collision with another moving or parked vehicle        |
+| `bicycle`        | Collision with a cyclist or stationary bicycle         |
+| `animal`         | Collision with a wild or domestic animal               |
+| `infrastructure` | Collision with objects like poles, fences, or barriers |
+
+---
+
+### 🎬 Video Examples (Click to View)
+
+#### 1. `vehicle` — AV collides with another car
+[![Vehicle Collision](https://img.youtube.com/vi/1pZZPvgmas0/0.jpg)](https://youtu.be/1pZZPvgmas0?t=20)  
+🚗💥🚗 *AV collides with another vehicle during a merge maneuver.*
+
+---
+
+#### 2. `bicycle` — AV hits a bicycle or cyclist
+[![Bicycle Collision](https://img.youtube.com/vi/2-Oxtnh6noA/0.jpg)](https://youtu.be/2-Oxtnh6noA?t=446)  
+🚲💥 *AV strikes a moving cyclist on the crosswalk.*
+
+---
+
+#### 3. `animal` — AV collides with an animal
+[![Animal Collision](https://img.youtube.com/vi/okj2SdV6vDE/0.jpg)](https://youtu.be/okj2SdV6vDE?t=496)  
+🦌 *AV crashes into an animal that suddenly enters the road.*
+
+---
+
+#### 4. `infrastructure` — AV hits road infrastructure
+[![Infrastructure Collision](https://img.youtube.com/vi/7sWL7IKVL7Q/0.jpg)](https://youtu.be/7sWL7IKVL7Q?t=719)  
+🛑 *AV collides with a fixed object such as a pole or barrier.*
+
+---
+
+### 📌 Annotation Notes
+
+- In multi-object crashes, label based on **initial point of contact**.
+- If the AV swerves and hits infrastructure while avoiding another object, use **the actual collision target**.
+- “Infrastructure” includes curbs, cones, signs, fences, and poles.
+
 
