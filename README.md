@@ -179,4 +179,76 @@ This variable indicates which party is considered at fault for the incident base
 - In complex situations, label as `both` when mutual errors clearly contribute to the incident.
 
 
+---
+
+## 💥 Variable: `TYPE_OF_IMPACT` — Collision Configuration
+
+### 📘 Definition  
+This variable describes the relative direction and position of the vehicles involved at the moment of impact. It helps classify crash geometry and impact severity.
+
+---
+
+### 🧩 Label Options
+
+| Value                          | Description                                       |
+|--------------------------------|---------------------------------------------------|
+| `front_to_front`               | Two vehicles collided head-on                     |
+| `front_to_rear`                | One vehicle rear-ended another                   |
+| `front_to_side`                | Front of one vehicle hit the side of another     |
+| `rear_to_rear`                 | Rear-to-rear collision (e.g., chain reaction)     |
+| `rear_to_side`                 | Rear of one vehicle hit the side of another      |
+| `sideswipe_opposite`          | Glancing contact in opposite directions          |
+| `sideswipe_same`              | Glancing contact in the same direction (lane drift) |
+
+---
+
+### 🎬 Video Examples (Click to View)
+
+#### 1. `front_to_front`
+[![Front to Front](https://img.youtube.com/vi/6jSMxcnTklo/0.jpg)](https://youtu.be/6jSMxcnTklo?t=489)  
+🚗🚗 *Two vehicles directly collide head-on.*
+
+---
+
+#### 2. `front_to_rear`
+[![Front to Rear](https://img.youtube.com/vi/HD0dz8G-2sM/0.jpg)](https://youtu.be/HD0dz8G-2sM?t=2752)  
+🚗➡️🚗 *AV crashes into the rear of a stopped or slower vehicle.*
+
+---
+
+#### 3. `front_to_side`
+[![Front to Side](https://img.youtube.com/vi/yboO0LyliHY/0.jpg)](https://youtu.be/yboO0LyliHY?t=328)  
+🚗➡️🚙 *Front of the AV collides into the side of a cross-traffic vehicle.*
+
+---
+
+#### 4. `rear_to_rear`
+[![Rear to Rear](https://img.youtube.com/vi/IjFsu5mirkw/0.jpg)](https://youtu.be/IjFsu5mirkw?t=179)  
+🚙↩️↩️🚙 *Rear bump occurs between two following vehicles.*
+
+---
+
+#### 5. `rear_to_side`
+[![Rear to Side](https://img.youtube.com/vi/Nh4sTJjKfq0/0.jpg)](https://youtu.be/Nh4sTJjKfq0?t=351)  
+🚙↩️➡️🚗 *Rear of one vehicle strikes the side of another (often at low speed).*
+
+---
+
+#### 6. `sideswipe_opposite`
+[![Sideswipe Opposite](https://img.youtube.com/vi/66IApMK6F5Y/0.jpg)](https://youtu.be/66IApMK6F5Y?t=435)  
+↔️ *Vehicles traveling in opposite directions brush against each other.*
+
+---
+
+#### 7. `sideswipe_same`
+[![Sideswipe Same](https://img.youtube.com/vi/_KMALXm8-hs/0.jpg)](https://youtu.be/_KMALXm8-hs?t=492)  
+➡️➡️ *Vehicles traveling in the same direction make lateral contact (e.g., lane drift).*
+
+---
+
+### 📌 Annotation Notes
+
+- Focus on the **first point of contact** between vehicles, not secondary impacts.
+- For multi-vehicle crashes, annotate the **main AV-to-object contact**.
+- “Sideswipe” does not imply high damage but indicates motion alignment and partial contact.
 
