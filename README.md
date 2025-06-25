@@ -395,43 +395,54 @@ This rule ensures labeling consistency and prioritizes the initial failure or ex
 
 ---
 
+---
+
 ## 🤖 Variable: `AV_AUTOMATION_LEVEL` — AV Driving Automation Level
 
 ### 📘 Definition  
-This variable indicates the level of driving automation actively engaged by the autonomous vehicle (AV) at the time of the incident, based on the SAE levels of driving automation.
-
-Only videos with **clearly identifiable automation levels** are included in this dataset. If the driving mode cannot be confirmed via visual evidence or reliable captions, the video is excluded from the SAVeD dataset.
+This variable represents the engaged level of driving automation in the autonomous vehicle (AV) at the time of the incident. Only videos with clearly verifiable driving modes are included. Unclear cases are excluded to ensure annotation consistency.
 
 ---
 
-### 🔍 Label Options
+### 🔍 Label: `Level3+` — Hands-free autonomous driving
 
-| Label       | Description                                                                 |
-|-------------|-----------------------------------------------------------------------------|
-| `Level3+`   | Hands-free autonomous driving. The AV operates without human steering input.|
-| `Level1_2`  | Driver-assistance mode (e.g., lane-keeping, adaptive cruise). Hands-on.     |
+<p align="center">
+  <a href="https://youtu.be/bnUMVWtExS4?t=1090" target="_blank">
+    <img src="https://img.youtube.com/vi/bnUMVWtExS4/0.jpg" width="400"/><br>
+    <em>Example 1: AV clearly driving hands-free (Model Y, interior view)</em>
+  </a>
+</p>
 
----
-
-### ⚠️ Annotation Guidelines
-
-- **Label as `Level3+`** if:
-  - The video clearly shows hands-free driving behavior  
-    e.g., [Video Example](https://youtu.be/bnUMVWtExS4?t=1090)
-  - The captions explicitly mention "Full Self-Driving" or "hands-free"  
-    e.g., [Video Example](https://youtu.be/V03P0J4s6OA?t=476)
-
-- **Label as `Level1_2`** if:
-  - The captions mention ADAS (e.g., "Autopilot engaged")  
-    e.g., [Video Example](https://youtu.be/QZ7vziuw420?t=39)
-  - The AV model is known to include basic automation (e.g., Autopilot in Model 3)  
-    e.g., [Video Example](https://youtu.be/sGAV6L8zl7E?t=183)
-
-- **Exclude** videos without sufficient evidence to assign a level.
+<p align="center">
+  <a href="https://youtu.be/V03P0J4s6OA?t=476" target="_blank">
+    <img src="https://img.youtube.com/vi/V03P0J4s6OA/0.jpg" width="400"/><br>
+    <em>Example 2: Subtitle confirms use of Full Self-Driving (FSD)</em>
+  </a>
+</p>
 
 ---
 
-### 🧠 Labeling Principle
+### 🛑 Label: `Level1_2` — Driver-assist (ADAS), hands-on
 
-We prioritize labeling only when there is **direct or clearly inferable evidence** of the AV automation level. If the video lacks both visual and textual cues, it is excluded to maintain annotation reliability.
+<p align="center">
+  <a href="https://youtu.be/QZ7vziuw420?t=39" target="_blank">
+    <img src="https://img.youtube.com/vi/QZ7vziuw420/0.jpg" width="400"/><br>
+    <em>Example 1: Caption confirms ADAS was active (Level 2)</em>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://youtu.be/sGAV6L8zl7E?t=183" target="_blank">
+    <img src="https://img.youtube.com/vi/sGAV6L8zl7E/0.jpg" width="400"/><br>
+    <em>Example 2: Tesla Model 3 known to support Autopilot (Level 1+)</em>
+  </a>
+</p>
+
+---
+
+### ⚠️ Annotation Rule
+
+> Videos are only labeled if there is **clear evidence** of automation level (visual or textual).  
+> Videos without sufficient information are **excluded** from the SAVeD dataset.
+
 
