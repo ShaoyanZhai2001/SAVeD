@@ -34,7 +34,17 @@ Accepted for presentation at the Transportation Research Board (TRB) 2026 Annual
 | **Estimated repair cost**                | (Free text, dollar amount)                                                                                                                                                                                                                                                                                                      | Some users provide repair/insurance receipts or describe costs in subtitles. If “total loss” is mentioned, the value is recorded as *total*.                                                                                                                               |
 
 
-> 🧠 *Note: We respect YouTube content ownership. Only URLs and timestamps are shared.*
+> ## Terms of Use
+
+By using this dataset, you agree to respect the following principles:
+
+- This dataset is **intended solely for educational and research purposes**.  
+- **Commercial use** of the dataset, in whole or in part, is **strictly prohibited**.  
+- When using or referencing this dataset, please cite our paper or repository appropriately.  
+- Please respect the privacy and integrity of the data and the individuals represented within it.
+
+By accessing this dataset, you acknowledge that you understand and agree to these terms.
+
 > ## 🔍 1. Example: Variable `LIGHT_CONDITION`
 > 
 
