@@ -1,0 +1,190 @@
+CRASH & NEARMISS VIDEO ANALYZER
+================================
+
+OVERVIEW
+--------
+This package contains a fine-tuned InternVL 2.5 model for analyzing driving scenarios.
+It classifies videos as crash or near-miss events and extracts detailed annotations.
+
+FILES
+-----
+INFERENCE & EVALUATION:
+- inference.py: Run model inference on crash/nearmiss videos
+- evaluation.py: Evaluate predictions against ground truth CSV files
+- terminology_mapping.py: Normalize model outputs to ground truth vocabulary
+
+DATA PREPARATION:
+- data_preparation.py: Prepare training data from CSV annotations
+
+TRAINING (HEAVILY MODIFIED FROM ORIGINAL XTUNER):
+- train_internvl2_modified.py: COMPLETE training script (1113 lines)
+  * Modified from original XTuner/VideoChat-Flash codebase
+  * Patched for TITAN RTX (Turing, compute 7.5) compatibility
+  * Disabled FlashAttention, forced FP16, custom FSDP setup
+- train.sh: Training launch script with FSDP configuration
+- training_modifications.txt: DETAILED documentation of ALL changes
+- requirements.txt: Python dependencies
+
+⚠️  IMPORTANT: The training code has been extensively modified from the original
+XTuner framework to support older GPU architectures. See training_modifications.txt.
+
+
+QUICK START
+-----------
+
+1. INSTALL DEPENDENCIES
+   pip install -r requirements.txt
+
+2. RUN INFERENCE
+   python inference.py \
+     --model-path /path/to/fine-tuned-model \
+     --crash-dir /path/to/crash/videos \
+     --nearmiss-dir /path/to/nearmiss/videos \
+     --num-videos 10 \
+     --num-frames 32 \
+     --output-dir results
+
+   Options:
+   - --num-videos: Number of videos per category (use 0 for ALL)
+   - --num-frames: Frames to sample per video (default: 32)
+   - --output-dir: Where to save results JSON files
+
+   Output: results/crash_results.json, results/nearmiss_results.json
+
+3. EVALUATE PREDICTIONS
+   python evaluation.py
+
+   Requirements:
+   - test_results_all/crash_results.json (from inference)
+   - test_results_all/nearmiss_results.json (from inference)
+   - Ground truth CSV files (update paths in evaluation.py)
+
+   Output:
+   - formatted-crash.csv, formatted-nearmiss.csv
+   - formatted-normalized-crash.csv, formatted-normalized-nearmiss.csv
+   - evaluation_crash.csv, evaluation_nearmiss.csv
+
+4. PREPARE TRAINING DATA (OPTIONAL)
+   python data_preparation.py
+
+   Edit the script to set:
+   - base_dir: Path to your data folder
+   - CSV files: AV_crash_modified_r.csv, AV_nearmiss_modified_r.csv
+   - Video directories: crash/, nearmiss/
+
+   Output: crash_ft.jsonl, nearmiss_ft.jsonl, diy_ft_data.json
+
+5. TRAIN MODEL (FULL MODIFIED SCRIPT INCLUDED)
+   
+   The COMPLETE modified training script is included: train_internvl2_modified.py
+   This is the FULL 1113-line training code with all TITAN RTX modifications.
+   
+   IMPORTANT: This code is heavily modified from the original XTuner framework.
+   See training_modifications.txt for complete list of changes.
+   
+   Basic training command:
+   bash train.sh
+   
+   Customize training:
+   export GPUS=8              # Number of GPUs
+   export MIRCO_BATCH_SIZE=1  # Batch size per GPU
+   export ACCUMULATIVE_COUNTS=4  # Gradient accumulation steps
+   bash train.sh
+   
+   The script will call: python train_internvl2_modified.py with all parameters.
+
+
+MODEL DETAILS
+-------------
+Base Model: InternVL 2.5 HiCo R16
+Architecture: Vision encoder + Language model (Qwen2)
+Training: Fine-tuned on 1,642 crash/nearmiss videos
+Input: 8-32 frames per video at 448x448 resolution
+Output: Structured markdown with 19 crash fields or 9 nearmiss fields
+
+
+EXTRACTED FIELDS
+----------------
+
+CRASH (19 fields):
+- Environmental: Light_condition, Weather, Road_surface_condition
+- Road: Road_type, Road_flat, Lanes, Traffic_condition
+- Movements: Ego_pre_avoid_movement, Other_pre_avoid_movement
+- Crash: Crash_type, Type_of_impact, Crash_with, Crash_vehicle_type
+- Details: Total_number_of_vehicles, Guilty, Crash_reason, 
+           Other_most_damaged_area, Crash_severity, Note
+
+NEARMISS (9 fields):
+- Environmental: Light_condition, Weather, Road_surface_condition
+- Road: Road_type, Road_flat, Lanes, Traffic_condition
+- Avoidance: Guilty, Avoid_reason
+
+
+EVALUATION METRICS
+------------------
+- Categorical fields: Exact match (case-insensitive)
+- Text fields: Semantic similarity (cosine similarity via all-MiniLM-L6-v2)
+- Terminology normalization improves accuracy by mapping model outputs to ground truth vocabulary
+
+
+HARDWARE REQUIREMENTS
+---------------------
+- GPU: NVIDIA GPU with 16GB+ VRAM (tested on TITAN RTX)
+- RAM: 32GB+ recommended
+- Storage: ~5GB for model, variable for videos
+
+
+KNOWN LIMITATIONS
+-----------------
+- FlashAttention is disabled for Turing architecture compatibility
+- Model uses FP16 precision (BF16 not supported on older GPUs)
+- Very long videos (>3 hours) may require reduced frame sampling
+- Training code is heavily modified from original XTuner - may not match upstream
+
+
+TRAINING MODIFICATIONS (FROM ORIGINAL XTUNER)
+----------------------------------------------
+The included train_internvl2_modified.py (1113 lines) is HEAVILY MODIFIED from
+the original XTuner/VideoChat-Flash training framework.
+
+See training_modifications.txt for complete details on ALL changes made:
+- TITAN RTX (compute capability 7.5) compatibility patches
+- FP16-only training (BF16 completely disabled)
+- FlashAttention disabled with SDPA math kernels
+- Custom FSDP zero2/zero3 sharding strategy
+- Checkpoint saving fixes for NCCL compatibility
+- Inference compatibility patches
+
+⚠️  These modifications are NOT in the upstream XTuner repository.
+This is custom code for older GPU architectures.
+
+
+TROUBLESHOOTING
+---------------
+
+Out of Memory:
+- Reduce --num-frames (try 16 or 8)
+- Process fewer videos at once
+- Use smaller batch size
+
+Slow Inference:
+- Reduce --num-videos for testing
+- Ensure GPU is being used (check CUDA_VISIBLE_DEVICES)
+
+Model Loading Error:
+- Verify model path is correct
+- Check transformers version is 4.45.1
+- Ensure trust_remote_code=True is set
+
+
+CITATION
+--------
+If you use this code, please cite the VideoChat-Flash paper:
+https://arxiv.org/abs/2501.00574
+
+
+SUPPORT
+-------
+For issues or questions, refer to:
+- VideoChat-Flash GitHub: https://github.com/OpenGVLab/VideoChat-Flash
+- InternVideo: https://github.com/OpenGVLab/InternVideo
